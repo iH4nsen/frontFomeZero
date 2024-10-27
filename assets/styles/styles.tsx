@@ -1,5 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
+const { width, height } = Dimensions.get('window');
+const scaleFont = (size: number) => (width / 375) * size;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -8,57 +10,56 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
+    paddingHorizontal: width * 0.05,  // Padding horizontal responsivo
   },
   center: {
     flex: 1,
     justifyContent: 'center',
   },
-  titleText: {
-    color: 'white',
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
   quoteText: {
-    color: '#DFA436',
-    fontSize: 18,
+    color: 'white',
+    fontSize: scaleFont(18),  // Fonte escalada
     fontWeight: 'bold',
     textAlign: 'center',
   },
   buttonText: {
     color: '#5C0C9F',
     fontWeight: 'bold',
+    fontSize: scaleFont(16),  // Fonte escalada
   },
   button: {
-    borderRadius: 8,
+    borderRadius: 8, 
     backgroundColor: 'white',
-  },
+    paddingVertical: height * 0.01, 
+    paddingHorizontal: width * 0.8,
+    width: width * 0.8,
+  },  
   partnerText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 16,
-    marginLeft: 8,
-    marginVertical: 8, 
+    fontSize: scaleFont(16),  // Fonte escalada
+    marginLeft: width * 0.02,
+    marginVertical: height * 0.01,
   },
   header: {
     backgroundColor: '#5C0C9F',
-    padding: 10,
+    padding: width * 0.025,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
-    height: 200,
+    height: height * 0.25,  // Altura escalada
     alignItems: 'center',
     shadowColor: 'black',
     shadowOpacity: 0.5,
   },
   backButton: {
-    padding: 8,
+    padding: width * 0.02,
     backgroundColor: 'white',
     borderRadius: 8,
     color: '#5C0C9F',
-    alignSelf: 'flex-start'
+    alignSelf: 'flex-start',
   },
   filterButton: {
-    alignSelf: 'flex-end'
+    alignSelf: 'flex-end',
   },
   card: {
     borderRadius: 8,
@@ -69,33 +70,96 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 5,
-    margin: 8,
+    margin: width * 0.02,
+  },
+  cardMarkett: {
+    borderRadius: 8,
+    overflow: 'hidden',
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 5,
+    height: height * 0.28, 
+    width: width * 0.33,  
+  },
+  cardImage: {
+    height: height * 0.2, 
+    width: width * 0.3, 
+    resizeMode: 'cover',
+    margin: 8
   },
   cardTitle: {
     fontWeight: 'bold',
     color: '#5C0C9F',
+    fontSize: scaleFont(16),
   },
   badge: {
     backgroundColor: '#5C0C9F',
-    borderRadius: 100,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
-    minWidth: 40, 
+    borderRadius: 50,
+    paddingHorizontal: width * 0.02,
+    minWidth: width * 0.1,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-start',
-    marginBottom: 4,
+    marginBottom: height * 0.01,
   },
   badgeText: {
     color: '#fff',
     fontWeight: '500',
+    fontSize: scaleFont(12),  // Fonte escalada
   },
   textCard: {
-    fontSize: 12,
-    color: '#5a5966'
+    fontSize: scaleFont(12),
+    color: '#5a5966',
   },
   progress: {
-    marginBottom: 8
+    marginBottom: height * 0.02,
+  },
+  buttonNext: {
+    backgroundColor: '#5C0C9F',
+    fontSize: scaleFont(14),
+  },
+  boxThanks: {
+    margin: 8,
+    backgroundColor: 'white', 
+    padding: width * 0.5, 
+    borderRadius: 8, 
+    elevation: 5
+  },
+  textThanks: {
+    color: '#5C0C9F', 
+    fontSize: scaleFont(12),
+    textAlign: 'left'
+  },
+  OngCardImage: {
+    width: width* 0.3
+  }, 
+  moneyContainer: {
+    width: width * 0.8,
+    paddingVertical: 10, // Add vertical padding for better spacing
+  },
+  title:{
+    fontSize: scaleFont(20),
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#DFA436',
+    marginHorizontal: 20
+    
+  },
+  text:{
+    fontSize: scaleFont(14),
+    textAlign: 'justify',
+    marginHorizontal: 20,
+    marginBottom: 10, 
+    color: 'white'
+  },
+  subtitle:{
+    fontSize: scaleFont(16),
+    fontWeight: 'bold',
+    color: '#DFA436',
+    marginHorizontal: 20,
+
   }
 });
 

@@ -2,10 +2,12 @@ import { ImageBackground, StyleSheet, SafeAreaView, Text, View } from 'react-nat
 import styles from '@/assets/styles/styles';
 import { Link } from 'expo-router';
 import { FontAwesome5 } from '@expo/vector-icons';
-import { NativeBaseProvider, Box, Button, VStack, Icon } from 'native-base';
+import { NativeBaseProvider, Box, Button, VStack, Icon, HStack, Image } from 'native-base';
+import React from 'react';
 
-export default function HomeScreen() {
-  const Background = require('../images/background-image.jpg');
+export default function App() {
+  const Background = require('../assets/images/background-image.jpg');
+  const FomeZero = require('../assets/images/fome.png');
 
   return (
     <NativeBaseProvider>
@@ -14,20 +16,25 @@ export default function HomeScreen() {
           source={Background}
           resizeMode='cover'
           style={styles.background}
+          accessibilityLabel={'Background'}
         >
-        
+
           <VStack mb={'150px'} alignItems="center" mt={10} space={2}>
-            <Text style={styles.titleText}>FOME ZERO</Text>
-            <Text style={styles.quoteText}>
+            <Image
+              source={FomeZero}
+              width={400}
+              height={150}
+              accessibilityLabel={'Fome Zero'}
+            />
+           <Text style={[styles.quoteText, { marginBottom: -80 }]}>
               "Fazer o bem, olhando a quem!"
             </Text>
           </VStack>
 
-          <VStack space={4} my={2} alignItems="center">
+          <VStack alignItems="center" space={1}>
             <Button
-              width={300}
               style={styles.button}
-              leftIcon={<Icon as={FontAwesome5} name="hand-holding-heart" size="lg" color="#DFA436" />}
+              leftIcon={<Icon as={FontAwesome5} name="hand-holding-heart" size={28} color="#DFA436" />}
               bg="white"
             >
               <Link style={styles.buttonText} href={'/ong'}>Quero Doar</Link>
@@ -36,45 +43,46 @@ export default function HomeScreen() {
 
           <VStack space={3} alignItems="center">
             <Box alignItems="center" flexDirection="row">
-              <Icon as={FontAwesome5} name="store" size="lg" color="#DFA436" />
+              <Icon as={FontAwesome5} name="store" size={28} color="#DFA436" />
               <Text style={styles.partnerText}>Conheça nossos parceiros</Text>
             </Box>
 
-            <Button.Group variant="outline" space={2}>
+            <VStack space={2} justifyContent="center">
               <Button
-                width={150}
+    
                 style={styles.button}
                 colorScheme="light"
                 _text={styles.buttonText}
                 onPress={() => console.log("Empresas")}
               >
-                Instituições
+                <Link style={styles.buttonText} href={'/instituition'}>Instituições</Link>
               </Button>
               <Button
+    
                 style={styles.button}
                 colorScheme="light"
                 _text={styles.buttonText}
-                onPress={() => console.log("Instituições")}
+                onPress={() => console.log("Supermercados")}
               >
-                Supermercados
+                <Link style={styles.buttonText} href={'/partners'}>Supermercados</Link>
               </Button>
-            </Button.Group>
+            </VStack>
           </VStack>
 
-          <VStack alignItems="center" mt={5}>
+
+          <VStack alignItems="center">
             <Box alignItems="center" flexDirection="row">
-              <Icon as={FontAwesome5} name="handshake" size="lg" color="#DFA436" />
+              <Icon as={FontAwesome5} name="handshake" size={28} color="#DFA436" />
               <Text style={styles.partnerText}>Seja um apoiador</Text>
             </Box>
 
             <Button
               style={styles.button}
-              width={300}
               colorScheme="light"
               _text={styles.buttonText}
               onPress={() => console.log("Apoiar")}
             >
-              Apoiar
+              <Link style={styles.buttonText} href={'/more'}>Saiba Mais</Link>
             </Button>
           </VStack>
         </ImageBackground>

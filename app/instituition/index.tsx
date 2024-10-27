@@ -33,17 +33,8 @@ const institutions = [
   }
 ];
 
-export default function OngScreen() {
-  const [selectedInstitution, setSelectedInstitution] = useState<Instituicao | null>(null);
+export default function InstituitionScreen() {
   const router = useRouter();
-
-  const handleSelectInstitution = (institution: Instituicao) => {
-    setSelectedInstitution(institution);
-  };
-
-  const handleNavigateToMarket = () => {
-    router.push('/mercado');
-  };
 
   return (
     <NativeBaseProvider>
@@ -58,8 +49,8 @@ export default function OngScreen() {
 
             <Box flex={1} alignItems="center">
               <HStack alignItems="center">
-                <FontAwesome5 name="hand-holding-heart" size={20} color="#DFA436" style={{ marginRight: 8 }} />
-                <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>Quero Doar</Text>
+                <Icon as={FontAwesome5} name="store" size={28} color="#DFA436" />
+                <Text style={styles.partnerText}>Conheça nossos parceiros</Text>
               </HStack>
             </Box>
           </HStack>
@@ -71,12 +62,9 @@ export default function OngScreen() {
 
         <ScrollView>
           {institutions.map((institution, index) => (
-            <TouchableOpacity key={index} onPress={() => handleSelectInstitution(institution)}>
+            <TouchableOpacity key={index}>
               <Box
-                style={[
-                  styles.card,
-                  { borderWidth: selectedInstitution && selectedInstitution.name === institution.name ? 2 : 0, borderColor: '#5C0C9F' }
-                ]}
+                style={styles.card}
                 flexDirection={'row'}
                 mb={4}
               >
@@ -88,26 +76,18 @@ export default function OngScreen() {
                 />
                 <VStack space={4} mx={2} flexDirection={'column'} flex={1} justifyContent="space-between">
                   <Text style={styles.cardTitle}>{institution.name}</Text>
-                  <Box flexDirection={'row'}>
+                  <Box flexDirection={{ base: 'column', md: 'row' }} flexWrap="wrap">
                     {institution.tags.map((tag, tagIndex) => (
                       <Badge key={tagIndex} mx={1} style={styles.badge}>
                         <Text style={styles.badgeText}>{tag}</Text>
                       </Badge>
                     ))}
                   </Box>
-                  <Box>
-                    <Text style={styles.textCard}>{institution.progress}% da meta arrecadada</Text>
-                    <Progress size={'sm'} value={institution.progress} style={styles.progress}/>
-                  </Box>
                 </VStack>
               </Box>
             </TouchableOpacity>
           ))}
         </ScrollView>
-
-        {selectedInstitution && (
-          <Button onPress={handleNavigateToMarket}>Continuar</Button>
-        )}
       </SafeAreaView>
     </NativeBaseProvider>
   );
