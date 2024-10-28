@@ -16,7 +16,7 @@ export default function MoreScreen() {
     return (
         <NativeBaseProvider>
             <LinearGradient
-                colors={['#5C0C9F', '#8DD7DF']}
+                colors={['#1B3252', '#8DD7DF']}
                 locations={[0.55, 1]}
                 style={{ flex: 1 }}
             >
@@ -25,7 +25,7 @@ export default function MoreScreen() {
                         <HStack alignItems="center" mx={8} mt={10} justifyContent="space-between" flex={1}>
                             <Box>
                                 <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-                                    <FontAwesome5 name="arrow-left" size={20} color='#5C0C9F' />
+                                    <FontAwesome5 name="arrow-left" size={20} color='#1B3252' />
                                 </TouchableOpacity>
                             </Box>
                             <Text style={styles.title}>Seja um apoiador do STR</Text>

@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   quoteText: {
-    color: 'white',
+    color: '#DFA436',
     fontSize: scaleFont(18),  // Fonte escalada
     fontWeight: 'bold',
     textAlign: 'center',
   },
   buttonText: {
-    color: '#5C0C9F',
+    color: '#1B3252',
     fontWeight: 'bold',
     fontSize: scaleFont(16),  // Fonte escalada
   },
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     marginVertical: height * 0.01,
   },
   header: {
-    backgroundColor: '#5C0C9F',
+    backgroundColor: '#1B3252',
     padding: width * 0.025,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     padding: width * 0.02,
     backgroundColor: 'white',
     borderRadius: 8,
-    color: '#5C0C9F',
+    color: '#1B3252',
     alignSelf: 'flex-start',
   },
   filterButton: {
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     height: height * 0.28, 
-    width: width * 0.33,  
+    width: width * 0.32,  
   },
   cardImage: {
     height: height * 0.2, 
@@ -91,11 +91,11 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontWeight: 'bold',
-    color: '#5C0C9F',
+    color: '#1B3252',
     fontSize: scaleFont(16),
   },
   badge: {
-    backgroundColor: '#5C0C9F',
+    backgroundColor: '#1B3252',
     borderRadius: 50,
     paddingHorizontal: width * 0.02,
     minWidth: width * 0.1,
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.02,
   },
   buttonNext: {
-    backgroundColor: '#5C0C9F',
+    backgroundColor: '#1B3252',
     fontSize: scaleFont(14),
   },
   boxThanks: {
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   textThanks: {
-    color: '#5C0C9F', 
+    color: '#1B3252', 
     fontSize: scaleFont(12),
     textAlign: 'left'
   },
@@ -140,10 +140,10 @@ const styles = StyleSheet.create({
     paddingVertical: 10, // Add vertical padding for better spacing
   },
   title:{
-    fontSize: scaleFont(20),
+    fontSize: scaleFont(26),
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#DFA436',
+    color: 'white',
     marginHorizontal: 20
     
   },

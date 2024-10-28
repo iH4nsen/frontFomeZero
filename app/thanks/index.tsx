@@ -3,47 +3,50 @@ import styles from '@/assets/styles/styles';
 import { NativeBaseProvider, VStack, Box, Image, Button } from 'native-base';
 import React, { useEffect, useRef } from 'react';
 import { useAppContext } from '@/context/appContext';
-import { useRouter } from 'expo-router'; 
+import { useRouter } from 'expo-router';
 import ConfettiCannon from 'react-native-confetti-cannon';
 
 const { width, height } = Dimensions.get('window');
 
+// Você pode tipar como ConfettiCannon
 export default function ThanksScreen() {
-    const { selectedInstitution, selectedMarket, selectedMoney, resetContext } = useAppContext(); 
-    const router = useRouter(); 
-    const cannonRef = useRef(null); 
+    const { selectedInstitution, selectedMarket, selectedMoney, resetContext } = useAppContext();
+    const router = useRouter();
     const str = require('../../assets/images/str.png');
+    const cannonRef = useRef<ConfettiCannon | null>(null); // Altere aqui para ConfettiCannon
 
     const handleBackToHome = () => {
-        resetContext(); 
-        router.replace('/'); 
+        resetContext();
+        router.replace('/');
     };
 
     useEffect(() => {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             if (cannonRef.current) {
-                cannonRef.current.start();
+                cannonRef.current.start(); // Certifique-se de que start é um método disponível
             }
         }, 100);
+
+        return () => clearTimeout(timer);
     }, []);
 
     return (
         <NativeBaseProvider>
-            <SafeAreaView style={[styles.container, { backgroundColor: '#5C0C9F', justifyContent: 'center', padding: 20 }]}>
+            <SafeAreaView style={[styles.container, { backgroundColor: '#1B3252', justifyContent: 'center', padding: 20 }]}>
                 <VStack alignItems="center" space={4}>
                     <ConfettiCannon
-                        count={200} 
-                        origin={{ x: width / 2, y: 0 }} 
+                        count={200}
+                        origin={{ x: width / 2, y: 0 }}
                         fadeOut={true}
                         autoStart={false}
                         ref={cannonRef} 
                     />
                     <Text style={[styles.partnerText, { marginTop: 40, textAlign: 'center' }]}>Obrigado(a) por doar!</Text>
                     <Image
-                        source={str} 
-                        height={height * 0.35} 
-                        width={width * 0.5} 
-                        alt="Imagem de agradecimento" 
+                        source={str}
+                        height={height * 0.35}
+                        width={width * 0.5}
+                        alt={"Imagem de agradecimento"}
                     />
                     <Box style={[styles.boxThanks, { padding: 15 }]}>
                         <Text style={[styles.textThanks, { fontWeight: '800', textAlign: 'left', marginBottom: 10 }]}>Dados da doação</Text>

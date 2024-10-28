@@ -39,7 +39,7 @@ export default function DonateScreen() {
                     <HStack alignItems="center" justifyContent="space-between" flex={1}>
                         <Box>
                             <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-                                <FontAwesome5 name="arrow-left" size={20} color='#5C0C9F' />
+                                <FontAwesome5 name="arrow-left" size={20} color='#1B3252' />
                             </TouchableOpacity>
                         </Box>
 
@@ -67,7 +67,7 @@ export default function DonateScreen() {
                                             {   
                                                 borderRadius: 50,
                                                 borderWidth: selectedMoney === item.moneyValue ? 2 : 0,
-                                                borderColor: '#5C0C9F',
+                                                borderColor: '#1B3252',
                                             },
                                         ]}
                                         p={3} // Mantém o padding para uma área de toque melhor

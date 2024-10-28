@@ -43,7 +43,7 @@ export default function InstituitionScreen() {
           <HStack alignItems="center" justifyContent="space-between" flex={1}>
             <Box>
               <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-                <FontAwesome5 name="arrow-left" size={20} color='#5C0C9F' />
+                <FontAwesome5 name="arrow-left" size={20} color='#1B3252' />
               </TouchableOpacity>
             </Box>
 
@@ -73,6 +73,7 @@ export default function InstituitionScreen() {
                   size={32}
                   borderRadius={8}
                   height={'auto'}
+                  alt={institution.name}
                 />
                 <VStack space={4} mx={2} flexDirection={'column'} flex={1} justifyContent="space-between">
                   <Text style={styles.cardTitle}>{institution.name}</Text>

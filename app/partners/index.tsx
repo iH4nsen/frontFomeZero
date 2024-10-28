@@ -38,7 +38,7 @@ export default function PartnersScreen() {
                     <HStack alignItems="center" justifyContent="space-between" flex={1}>
                         <Box>
                             <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-                                <FontAwesome5 name="arrow-left" size={20} color='#5C0C9F' />
+                                <FontAwesome5 name="arrow-left" size={20} color='#1B3252' />
                             </TouchableOpacity>
                         </Box>
 
@@ -66,6 +66,7 @@ export default function PartnersScreen() {
                                                 source={partner.image}
                                                 style={styles.cardImage}
                                                 accessibilityLabel={partner.name}
+                                                alt={partner.name}
                                             />
                                             <Text style={styles.cardTitle}>
                                                 {partner.name}

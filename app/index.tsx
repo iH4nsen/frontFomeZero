@@ -7,7 +7,7 @@ import React from 'react';
 
 export default function App() {
   const Background = require('../assets/images/background-image.jpg');
-  const FomeZero = require('../assets/images/fome.png');
+  const FomeZero = require('../assets/images/fomeZero.png');
 
   return (
     <NativeBaseProvider>
@@ -17,16 +17,20 @@ export default function App() {
           resizeMode='cover'
           style={styles.background}
           accessibilityLabel={'Background'}
+          alt='Background'
         >
 
           <VStack mb={'150px'} alignItems="center" mt={10} space={2}>
-            <Image
-              source={FomeZero}
-              width={400}
-              height={150}
-              accessibilityLabel={'Fome Zero'}
-            />
-           <Text style={[styles.quoteText, { marginBottom: -80 }]}>
+            <HStack alignItems={'center'}>
+              <Text style={styles.title}>Fome Zero</Text>
+              <Image
+                source={FomeZero}
+                width={150}
+                height={140}
+                accessibilityLabel={'Fome Zero'}
+              />
+            </HStack>
+            <Text style={[styles.quoteText, { marginBottom: -80 }]}>
               "Fazer o bem, olhando a quem!"
             </Text>
           </VStack>
@@ -49,7 +53,7 @@ export default function App() {
 
             <VStack space={2} justifyContent="center">
               <Button
-    
+
                 style={styles.button}
                 colorScheme="light"
                 _text={styles.buttonText}
@@ -58,7 +62,7 @@ export default function App() {
                 <Link style={styles.buttonText} href={'/instituition'}>Instituições</Link>
               </Button>
               <Button
-    
+
                 style={styles.button}
                 colorScheme="light"
                 _text={styles.buttonText}

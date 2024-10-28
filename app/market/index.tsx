@@ -51,7 +51,7 @@ export default function MarketScreen() {
                     <HStack alignItems="center" justifyContent="space-between" flex={1}>
                         <Box>
                             <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-                                <FontAwesome5 name="arrow-left" size={20} color='#5C0C9F' />
+                                <FontAwesome5 name="arrow-left" size={20} color='#1B3252' />
                             </TouchableOpacity>
                         </Box>
                         <Box flex={1} alignItems="center">
@@ -68,18 +68,19 @@ export default function MarketScreen() {
 
                 <ScrollView>
                     {Array.from({ length: Math.ceil(marketData.length / numCardsToShow) }).map((_, rowIndex) => (
-                        <HStack key={rowIndex} space={2} justifyContent="center" mb={4}>
+                        <HStack key={rowIndex} space={2} justifyContent="center" my={4} mx={5}>
                             {marketData.slice(rowIndex * numCardsToShow, rowIndex * numCardsToShow + numCardsToShow).map((market, index) => (
                                 <TouchableOpacity key={index} onPress={() => handleSelectMarket(market)}>
                                     <Box style={[styles.cardMarkett, {
                                         borderWidth: selectedMarket && selectedMarket.name === market.name ? 2 : 0,
-                                        borderColor: '#5C0C9F'
+                                        borderColor: '#1B3252'
                                     }]} flexDirection={'row'} mb={4}>
                                         <VStack flex={1} justifyContent="space-between" alignItems="center">
                                             <Image
                                                 source={market.image}
                                                 style={styles.cardImage}
                                                 accessibilityLabel={market.name}
+                                                alt={market.name}
                                             />
                                             <Text style={styles.cardTitle}>
                                                 {market.name}
